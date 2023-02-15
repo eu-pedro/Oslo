@@ -31,3 +31,39 @@ body {
   width: 100vw;
 }
 
+a {
+  text-decoration: none;
+}
+
+.navigation {
+  display: flex;
+  justify-content: space-between;
+  padding: 2.5rem 0;
+}
+
+.list {
+  display: flex;
+  gap: 2rem;
+}
+
+.list > li {
+  list-style: none;
+}
+
+.list > li > a {
+  font-weight: 600;
+  padding: 1.3rem 1.9rem;
+  border-radius: 20px;
+}
+
+.list > li > a:hover {
+  opacity: 0.7;
+  transition: 0.7s all;
+}
+
+.list > li:nth-child(4) > a{
+  color: var(--black);
+  background-color: var(--white);
+}
+
+
