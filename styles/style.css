@@ -9,6 +9,7 @@
 :root {
   --black: #0F0C0C;
   --white: #f9f4f4;
+  --bg-slot: #c9c3fb;
 }
 
 html {
@@ -18,6 +19,7 @@ html {
 html, body {
   height: 100vh;
   width: 100vw;
+  overflow-x: hidden;
 }
 
 body {
@@ -26,18 +28,20 @@ body {
 }
 
 .container {
-  padding: 0 7rem;
-  height: 100vh;
-  width: 100vw;
+  min-height: 100%;
+  width: 90%;
+  max-width: 980px;
+  margin: auto;
 }
 
 a {
   text-decoration: none;
 }
 
-.navigation {
+.container-header {
   display: flex;
   justify-content: space-between;
+
   padding: 2.5rem 0;
 }
 
@@ -56,14 +60,265 @@ a {
   border-radius: 20px;
 }
 
+
 .list > li > a:hover {
   opacity: 0.7;
-  transition: 0.7s all;
 }
 
 .list > li:nth-child(4) > a{
   color: var(--black);
   background-color: var(--white);
+  
+}
+
+.list > li:nth-child(4) {
+  transition: all .3s ease-in;
+}
+
+.list > li:nth-child(4):hover {
+  transform: scale(1.1);
+}
+
+.main {
+  margin: 5rem 0 9rem 0;
+}
+
+.main > p {
+  font-size: 3rem;
+  text-align: justify;
+  margin-bottom: 5rem;
+  
+  line-height: 4.6rem;
+}
+
+.main > h1 {
+  font-size: 6.5rem;
+}
+
+.box-image {
+  max-width: 100%;
+
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(450px, 1fr));
+  grid-gap: 3rem;
+
+  cursor: pointer;
+}
+
+.image {
+  transition: 0.8s all ease;
+  max-width: 300px;
+  width: 100%;
+}
+
+.image:hover {
+  transform: scale(1.1);
+}
+
+.slot3 > .image {
+  max-width: 400px;
+}
+
+.slot4 > .image{
+  max-width: 200px;
 }
 
 
+.slot1, .slot2, .slot3, .slot4 {
+  background-color: var(--bg-slot);
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  
+  border-radius: 18px;
+}
+
+.box-info > h2 {
+  font-size: 3rem;
+  padding-right: 6rem;
+  margin: 15rem 0;
+  text-align: left;
+}
+
+.box-office{
+  width: 100%;
+  height: 600px;
+  object-fit: fill;
+  background-image: url("../images/black.jpg");
+  background-repeat: no-repeat;
+  background-position: center;
+  filter: brightness(0.7);
+}
+
+footer {
+  display: flex;
+  align-items: center;
+  gap: 10rem;
+  margin: 12rem 0 0 0;
+  padding-bottom: 2rem;
+}
+
+footer .footer-left {
+  display: flex;
+  flex-direction: column; 
+}
+
+.footer-right h4 {
+  font-weight: 700;
+  font-size: 2rem;
+}
+
+footer .footer-left h3 {
+  font-size: 3.5rem;
+  text-align: left;
+  margin-bottom: 4.5rem;
+}
+
+.container-button button {
+  color: #253237;
+  background-color: var(--white);
+  padding: 1.8rem 4rem;
+  border-radius: 50px;
+  font-size: 1.6rem;
+  font-weight: 600;
+  word-spacing: 1px;
+}
+
+.footer-right {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+.content {
+  display: flex;
+  gap: 9rem;
+
+  font-weight: 600;
+}
+
+.content-left > span, .content-right > span {
+  cursor: pointer;
+}
+
+.content-left {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+.content-right {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+button {
+  transition: all .3s ease-in;
+}
+
+button:hover {
+  transform: scale(1.1);
+  opacity: 0.7;
+  cursor: pointer;
+}
+
+
+
+@media (max-width: 666px) {
+  html {
+    font-size: 55%;
+  }
+  .main > p {
+    text-align: left;
+  }
+}
+
+@media (max-width: 540px) {
+  nav {
+    display: none;
+  }
+
+  .one,
+  .two,
+  .three {
+    background-color: var(--white);
+    height: 5px;
+    width: 100%;
+    margin: 5px auto;
+
+    transition-duration: 0.3s;
+  }
+  
+  .menu-toggle {
+    width: 40px;
+    height: 30px;
+    margin-right: 15px;
+    cursor: pointer;
+  }
+
+  .menu-section.on {
+    position: absolute;
+    top: 0;
+    left: 0;
+
+    width: 100vw;
+    height: 100vh;
+
+    background-color: #272727;
+
+    z-index: 999;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .menu-section.on nav {
+    display: block;
+  }
+
+  .menu-section.on .menu-toggle {
+    position: absolute;
+    right: 45px;
+    top: 25px;
+  }
+
+  .menu-section.on .menu-toggle .one {
+    transform: rotate(45deg) translate(7px, 6px);
+  }
+
+  .menu-section.on .menu-toggle .two {
+    opacity: 0;
+  }
+
+  .menu-section.on .menu-toggle .three {
+    transform: rotate(-45deg) translate(8px, -8px);
+  }
+
+  .menu-section.on nav ul {
+    display: block;
+    text-align: center;
+  }
+
+  .menu-section.on nav ul a {
+    transition-duration: 0.5s;
+    font-size: 3rem;
+    line-height: 8rem;
+    display: block;
+  }
+
+  .list > li > a {
+    font-weight: 600;
+  }
+
+  .list > li:nth-child(4) > a {
+    background-color: transparent;
+    color: white;
+  }
+
+  footer {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+}
